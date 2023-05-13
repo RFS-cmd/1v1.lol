@@ -1,11 +1,11 @@
 <script>
 // ==UserScript==
-// @name         1v1.exe | 1v1.LOL Rapid fire, Instant relead, and more!
-// @version      1.2
-// @description  1v1.LOL hack script - rapid fire, instant reload.
-// @author       Zer0LOL
-// @namespace    https://greasyfork.org/en/users/946843-zer0lol-yt
-// @match        *://rfs-cmd.github.io/*
+// @name         1v1.www v2
+// @version      0.4
+// @description  1v1.LOL hack script - infinite ammmo, infinite armor, rapid fire, [free fly]
+// @author       nekocell
+// @namespace    https://greasyfork.org/ja/users/762895-nekocell
+// @match        *://rfs-cmd.github.io/1v1.lol/*
 // @icon         https://www.google.com/s2/favicons?domain=1v1.lol
 // @require      https://greasyfork.org/scripts/436749-wasm-patcher/code/wasm_patcher.js
 // ==/UserScript==
@@ -45,7 +45,7 @@ wasm.instantiate = async function(bufferSource, importObject) {
         onsuccess: () => Log('Infinite Armor')
     });
  
-    if(new URLSearchParams( window.location.search ).get('party?=zer0hack') === 'true') {
+    if(new URLSearchParams( window.__cpLocation.search ).get('TU9SRUhBQ0tT') === 'true') {
  
         alert('[FreeFly] is added');
  
@@ -91,7 +91,7 @@ wasm.instantiate = async function(bufferSource, importObject) {
  
     const result = await oldInstantiate(patcher.patch(), importObject);
  
-    if(new URLSearchParams( window.location.search ).get('party?=zer0hack') === 'true') {
+    if(new URLSearchParams( window.__cpLocation.search ).get('TU9SRUhBQ0tT') === 'true') {
         const exports = result.instance.exports;
  
         const pressSpaceKey = exports.PRESS_SPACE_KEY;
@@ -99,31 +99,29 @@ wasm.instantiate = async function(bufferSource, importObject) {
         document.addEventListener('keydown', evt => evt.code === 'Space' && (pressSpaceKey.value = 1));
         document.addEventListener('keyup', evt => evt.code === 'Space' && (pressSpaceKey.value = 0));
  
-        localStorage.removeItem('party?=zer0hack');
+        localStorage.removeItem('TU9SRUhBQ0tT');
     }
  
     return result;
 };
  
-if(new URLSearchParams( window.location.search ).get('party?=zer0hack') === 'true') return;
+if(new URLSearchParams( window.__cpLocation.search ).get('TU9SRUhBQ0tT') === 'true') return;
  
 const $moreHacks = document.createElement('a');
 const $ads = document.querySelector('ads');
-$moreHacks.innerText = 'Click to activate hacks';
+$moreHacks.innerText = 'Click to get more hacks! (FreeFly)';
 $moreHacks.style.display = 'flex';
 $moreHacks.style.position = 'absolute';
 $moreHacks.style.zIndex = '50';
 $moreHacks.style.color = 'red';
-$moreHacks.style.backgroundColor = 'black';
+$moreHacks.style.backgroundColor = 'yellow';
 $moreHacks.style.cursor = 'pointer';
 document.body.prepend($moreHacks);
  
 $moreHacks.onclick = function() {
-    localStorage.setItem('party?=zer0hack', true);
-    location.href = 'https://sites.google.com/view/1v1lolhacks/home';
+    localStorage.setItem('TU9SRUhBQ0tT', true);
+    __cpLocation.href = 'https://ouo.io/hHxbxs1';
 };
- 
-if(new URLSearchParams( window.location.search ).get('party?=zer0hack') === 'true') return;
 </script>
 <html><head>
   <script>alert("By clicking OK, you agree that this website is for educational purposes only, and I am not liable if you get into trouble.")</script>
